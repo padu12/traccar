@@ -118,7 +118,7 @@ public class SAFB02V4ProtocolDecoder extends BaseProtocolDecoder {
         position.set("gnss", parser.nextInt());
         position.set(Position.KEY_GPS, parser.nextInt());
         position.set("glonass", parser.nextInt());
-        position.set("GsmSignalStrength", parser.nextInt());
+        position.set("gsmSignalStrength", parser.nextInt());
 
         dateBuilder.setDateReverse(parser.nextInt(), parser.nextInt(), parser.nextInt());
         position.setTime(dateBuilder.getDate());
@@ -144,7 +144,7 @@ public class SAFB02V4ProtocolDecoder extends BaseProtocolDecoder {
 
         int DbsNodesNumber = parser.nextInt();
         int CbsNodesNumber = parser.nextInt();
-        parser.nextInt();
+        parser.skip(1);
 
         for (int i = 1; i <= DbsNodesNumber; i++) {
             position.set("dbs" + i + "_messageId", parser.next());

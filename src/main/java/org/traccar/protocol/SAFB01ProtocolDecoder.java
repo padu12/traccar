@@ -77,19 +77,19 @@ public class SAFB01ProtocolDecoder extends BaseProtocolDecoder {
 
         position.setValid(parser.next().equals("A"));
         position.setLatitude(parser.nextCoordinate(Parser.CoordinateFormat.HEM_DEG_MIN_HEM));
-        position.set("NORTH/SOUTH", parser.next());
+        position.set("north/south", parser.next());
         position.setLongitude(parser.nextCoordinate(Parser.CoordinateFormat.HEM_DEG_MIN_HEM));
-        position.set("EAST/WEST", parser.next());
+        position.set("east/west", parser.next());
         position.setAltitude(parser.nextDouble(0));
         position.setSpeed(parser.nextDouble(0));
         position.setCourse(parser.nextDouble(0));
         position.set(Position.KEY_HDOP, parser.nextDouble());
         position.set(Position.KEY_PDOP, parser.nextDouble());
         position.set(Position.KEY_VDOP, parser.nextDouble());
-        position.set("GNSS", parser.nextInt());
+        position.set("gnss", parser.nextInt());
         position.set(Position.KEY_GPS, parser.nextInt());
-        position.set("GLONASS", parser.nextInt());
-        position.set("GSMSignalStrength", parser.nextInt());
+        position.set("glonaas", parser.nextInt());
+        position.set("gsmSignalStrength", parser.nextInt());
 
         dateBuilder.setDateReverse(parser.nextInt(), parser.nextInt(), parser.nextInt());
         position.setTime(dateBuilder.getDate());
